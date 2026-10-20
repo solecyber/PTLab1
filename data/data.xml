@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+  <student name="Иванов Иван Иванович">
+    <subject name="математика" score="60" />
+    <subject name="литература" score="55" />
+    <subject name="программирование" score="91" />
+  </student>
+  <student name="Петров Петр Петрович">
+    <subject name="математика" score="78" />
+    <subject name="химия" score="87" />
+    <subject name="социология" score="61" />
+  </student>
+  <student name="Сидорова Анна Олеговна">
+    <subject name="математика" score="40" />
+    <subject name="физика" score="60" />
+    <subject name="химия" score="50" />
+  </student>
+</students>
