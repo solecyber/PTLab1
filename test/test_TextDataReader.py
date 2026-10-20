@@ -13,6 +13,7 @@ def test_read_parses_text_file(tmp_path: Path) -> None:
         "Иванов Иван Иванович\n"
         "    математика:91\n"
         "    химия:100\n"
+        "\n"
         "Петров Петр Семенович\n"
         "    русский язык:87\n",
         encoding="utf-8",

@@ -50,7 +50,9 @@ def test_read_parses_xml_file(tmp_path: Path) -> None:
             "must have a name",
         ),
         (
-            "<students><student name='A' /><student name='A' />"
+            "<students><student name='A'>"
+            "<subject name='math' score='90' />"
+            "</student><student name='A' />"
             "</students>",
             "Duplicate student",
         ),

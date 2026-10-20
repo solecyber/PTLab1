@@ -1,0 +1,35 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class DataReader {
+  +read(path: str): DataType
+}
+
+class TextDataReader {
+  +read(path: str): DataType
+}
+
+class XMLDataReader {
+  +read(path: str): DataType
+}
+
+class CalcRating {
+  -data: DataType
+  +calc(): RatingType
+}
+
+class AcademicDebtCounter {
+  {static} PASSING_SCORE: int = 61
+  {static} REQUIRED_DEBT_COUNT: int = 2
+  -data: DataType
+  +student_names(): list[str]
+  +count(): int
+}
+
+DataReader <|-- TextDataReader
+DataReader <|-- XMLDataReader
+CalcRating --> DataType
+AcademicDebtCounter --> DataType
+TextDataReader --> DataType
+XMLDataReader --> DataType
+@enduml
