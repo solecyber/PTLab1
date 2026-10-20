@@ -127,7 +127,7 @@ Students with debts in exactly two subjects: 1
 
 ```bash
 pycodestyle src test
-pytest
+python -m pytest
 ```
 
 `pytest` автоматически измеряет покрытие ветвей кода и требует результат не

@@ -26,4 +26,4 @@ jobs:
       - name: Check code style
         run: pycodestyle src test
       - name: Run tests
-        run: pytest
+        run: python -m pytest
