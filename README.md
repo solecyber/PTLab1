@@ -1,5 +1,7 @@
 # Лабораторная работа № 1: Git и GitHub Actions
 
+![Python CI](https://github.com/solecyber/PTLab1/actions/workflows/python-ci.yml/badge.svg)
+
 Проект выполнен по варианту 10. Он демонстрирует работу с Git, объектно-
 ориентированное программирование, модульное тестирование и непрерывную
 интеграцию с помощью GitHub Actions.
