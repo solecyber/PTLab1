@@ -30,6 +30,7 @@ def test_main_prints_ratings(tmp_path: Path, capsys) -> None:
     assert "Students:" in output
     assert "Ratings:" in output
     assert "80.0" in output
+    assert "debts in exactly two subjects: 0" in output
 
 
 def test_get_reader_selects_reader_by_extension() -> None:
@@ -55,4 +56,6 @@ def test_main_reads_xml(tmp_path: Path, capsys) -> None:
     )
 
     assert main(["-p", str(path)]) == 0
-    assert "75.0" in capsys.readouterr().out
+    output = capsys.readouterr().out
+    assert "75.0" in output
+    assert "debts in exactly two subjects: 0" in output
