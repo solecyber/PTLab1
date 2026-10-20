@@ -5,7 +5,9 @@ from pathlib import Path
 from typing import Sequence
 
 from src.CalcRating import CalcRating
+from src.DataReader import DataReader
 from src.TextDataReader import TextDataReader
+from src.XMLDataReader import XMLDataReader
 
 
 def get_path_from_arguments(args: Sequence[str] | None = None) -> str:
@@ -20,13 +22,24 @@ def get_path_from_arguments(args: Sequence[str] | None = None) -> str:
     return parser.parse_args(args).path
 
 
-def main(args: Sequence[str] | None = None) -> int:
-    """Read a text file and print average ratings."""
-    path = get_path_from_arguments(args)
-    if Path(path).suffix.lower() != ".txt":
-        raise ValueError("The base project supports TXT files only")
+def get_reader(path: str) -> DataReader:
+    """Select an input reader by file extension."""
+    readers = {
+        ".txt": TextDataReader,
+        ".xml": XMLDataReader,
+    }
+    suffix = Path(path).suffix.lower()
+    try:
+        return readers[suffix]()
+    except KeyError as error:
+        raise ValueError(f"Unsupported input format: {suffix}") from error
 
-    students = TextDataReader().read(path)
+
+def main(args: Sequence[str] | None = None) -> int:
+    """Read a supported data file and print average ratings."""
+    path = get_path_from_arguments(args)
+
+    students = get_reader(path).read(path)
     ratings = CalcRating(students).calc()
 
     print("Students:", students)
