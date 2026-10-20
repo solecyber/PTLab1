@@ -1,0 +1,13 @@
+[tool.pytest.ini_options]
+testpaths = ["test"]
+addopts = "--cov=src --cov-report=term-missing --cov-fail-under=95"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+exclude_also = [
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]
