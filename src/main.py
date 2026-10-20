@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Sequence
 
+from src.AcademicDebtCounter import AcademicDebtCounter
 from src.CalcRating import CalcRating
 from src.DataReader import DataReader
 from src.TextDataReader import TextDataReader
@@ -41,9 +42,14 @@ def main(args: Sequence[str] | None = None) -> int:
 
     students = get_reader(path).read(path)
     ratings = CalcRating(students).calc()
+    debt_counter = AcademicDebtCounter(students)
 
     print("Students:", students)
     print("Ratings:", ratings)
+    print(
+        "Students with debts in exactly two subjects:",
+        debt_counter.count(),
+    )
     return 0
 
 
